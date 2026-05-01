@@ -41,6 +41,15 @@ class ArrayBoom extends Phaser.Scene {
         // Sound asset from the Kenny Music Jingles pack
         // https://kenney.nl/assets/music-jingles
         // TODO: load sound assets here
+
+        this.load.sound("impactMetal0", "impactMetal_light_000.ogg");
+        this.load.sound("impactMetal1", "impactMetal_light_001.ogg");
+        this.load.sound("impactMetal2", "impactMetal_light_002.ogg");
+        this.load.sound("impactMetal3", "impactMetal_light_003.ogg");
+        this.load.sound("impactMetal4", "impactMetal_light_004.ogg");
+        this.load.sound("jingleHit13", "jinlges_HIT13.ogg");
+
+
     }
 
     create() {
@@ -72,6 +81,8 @@ class ArrayBoom extends Phaser.Scene {
 
 
         // TODO: create sound object(s) here
+
+        this.mySound = this.sound.add(key, config);
 
 
         // Create key objects
@@ -158,7 +169,7 @@ class ArrayBoom extends Phaser.Scene {
                 this.myScore += my.sprite.hippo.scorePoints;
                 this.updateScore();
                 // TODO: Play collision sound
-
+                this.mySound.play("impactMetal0");
                 // Have new hippo appear after end of animation
                 this.puff.on(Phaser.Animations.Events.ANIMATION_COMPLETE, () => {
                     this.my.sprite.hippo.visible = true;
