@@ -43,6 +43,7 @@ class ArrayBoom extends Phaser.Scene {
         // TODO: load sound assets here
 
         this.load.audio('hit', 'impactMetal_light_000.ogg');
+        this.load.audio('background', 'Lonely Man - Alex Hamlin.mp3');
 
     }
 
@@ -75,7 +76,7 @@ class ArrayBoom extends Phaser.Scene {
 
 
         // TODO: create sound object(s) here
-        this.hitSound = this.sound.add('hit', 'impactMetal_light_000.ogg');
+        this.hitSound = this.sound.add('hit');
 
         // Create key objects
         this.left = this.input.keyboard.addKey("A");
@@ -102,7 +103,10 @@ class ArrayBoom extends Phaser.Scene {
         });
 
         // TODO: create background music object
+        this.backgroundMusic = this.sound.add('background');
+
         // TODO: start playing background music
+        this.backgroundMusic.play({loop: true, volume: 0.5});
 
     }
 
